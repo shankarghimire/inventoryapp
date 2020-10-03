@@ -46,4 +46,10 @@ public class HomeController {
         modelAndView.addObject("product",product);
         return modelAndView;
     }
+
+    @RequestMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable(name="id") Long id){
+        productService.delete(id);
+        return  "redirect:/";
+    }
 }
